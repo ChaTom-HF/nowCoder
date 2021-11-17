@@ -1,4 +1,4 @@
-package com.newcoder.stringfor;
+package com.newcoder.string.stringfor;
 
 import java.util.LinkedList;
 import java.util.Scanner;
