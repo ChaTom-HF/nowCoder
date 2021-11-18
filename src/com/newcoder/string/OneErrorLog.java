@@ -51,11 +51,8 @@ public class OneErrorLog {
             String[] str = tstr.split("\\s+");
             String fname = str[0].substring(str[0].lastIndexOf("\\") + 1);
             fname = fname.substring(Math.max(fname.length() - 16, 0)) + " " + str[1];  //max 最快推荐 ？：也可以 if太麻烦
-            Integer tmp = m.get(fname);  //get==null较快写法
-            if (tmp == null)
-                m.put(fname, 1);
-            else
-                m.put(fname, tmp + 1);
+            //get==null较快写法
+            m.merge(fname, 1, Integer::sum);
         }
         int cnt = 0;
         for (Map.Entry<String, Integer> it : m.entrySet()) {
