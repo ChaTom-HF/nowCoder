@@ -106,9 +106,10 @@ public class DynamicArrayMain {
                 return;
             }
             //删除元素
-            for (int i = pos; i < array.size - 1; i++) {
-                array.data[i] = array.data[i + 1];
-            }
+            if (array.size - 1 - pos >= 0) System.arraycopy(array.data, pos + 1, array.data, pos, array.size - 1 - pos);
+//            for (int i = pos; i < array.size - 1; i++) {
+//                array.data[i] = array.data[i + 1];
+//            }
             array.size--;
         }
 
